@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tidebreak — 24 cards, 3 tides, 1 duel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Title screen -->
+  <section class="screen active" id="screen-title">
+    <div class="corner-btns">
+      <button class="ghost-btn" id="mute-btn" type="button">Sound: on</button>
+    </div>
+    <h1 class="game-title">TIDEBREAK</h1>
+    <p class="game-sub">24 cards &middot; 3 tides &middot; 1 duel</p>
+    <p class="game-tag">You are the Tidecaller. The Stormwright holds the far side of the
+      table with 30 HP — and so do you. Play a card, pay its mana, and call
+      the tide. Play two cards of one tide in a turn and the second one
+      <b>SURGES</b> +2.</p>
+    <div class="title-cards" aria-hidden="true">
+      <div class="card suit-ember"><div class="cost">3</div><div class="card-icon"><svg viewBox="0 0 24 24" width="34" height="34" style="color:#ff7a3c"><path d="M12 2c1 3-2 4.5-2 7 0 1.2.8 2 2 2s2-.8 2-2c2 1.5 3 3.5 3 5.5A5.5 5.5 0 0 1 6.5 14.5C6.5 9 10 6 12 2z" fill="currentColor"/></svg></div><div class="card-name">Flame</div><div class="card-power">4</div><div class="card-effect">Deal 4 damage</div><div class="card-suit">Ember</div></div>
+      <div class="card suit-kelp"><div class="cost">3</div><div class="card-icon"><svg viewBox="0 0 24 24" width="34" height="34" style="color:#4ecb5d"><path d="M20 4C10 4 4 9 4 19c0 1 .5 1.5 1.5 1C15 20 20 14 20 4z" fill="currentColor"/></svg></div><div class="card-name">Coral</div><div class="card-power">5</div><div class="card-effect">Gain 5 shield</div><div class="card-suit">Kelp</div></div>
+      <div class="card suit-tide"><div class="cost">4</div><div class="card-icon"><svg viewBox="0 0 24 24" width="34" height="34" style="color:#4db8ff"><path d="M2 14c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 3.5-2 5-1v4c-1.5-1-2.5-1-5 1s-5 2.5-7.5 0-5-2.5-7.5 0V14z" fill="currentColor"/></svg></div><div class="card-name">Riptide</div><div class="card-power">2</div><div class="card-effect">Damage 2 + cards in hand</div><div class="card-suit">Tide</div></div>
+    </div>
+    <button class="big-btn" id="play-btn" type="button">Play the duel</button>
+    <button class="ghost-btn" id="how-btn" type="button">How to play</button>
+    <div id="howto">
+      <b>Goal:</b> reduce the Stormwright to 0 HP before it does the same to you.
+      Both start at 30 HP.<br>
+      <b>Your turn:</b> click a card to play it (it costs mana, top-left gem).
+      Mana refills each turn and grows by 1, up to 8. Draw 2 cards a turn.
+      Click <b>End Turn</b> when done.<br>
+      <b>The tides:</b> <span style="color:#ff7a3c"><b>Ember</b></span> deals
+      damage, <span style="color:#4ecb5d"><b>Kelp</b></span> shields and heals,
+      <span style="color:#4db8ff"><b>Tide</b></span> draws cards, steals mana,
+      and hits harder the fuller your hand is.<br>
+      <b>Surge:</b> play two cards of the same tide in one turn and the
+      second one gets +2 power.<br>
+      <b>Read the Stormwright:</b> the middle of the table telegraphs what it
+      is about to do — shield up, heal, or race it.
+    </div>
+  </section>
+
+  <!-- The table -->
+  <section class="screen" id="screen-table">
+    <div id="table"></div>
+    <button class="ghost-btn" id="title-btn" type="button" style="position:absolute;top:14px;right:22px">Title screen</button>
+  </section>
+
+  <!-- Win / loss screen -->
+  <section class="screen" id="screen-end">
+    <h1 class="end-title" id="end-title"></h1>
+    <p id="end-sub"></p>
+    <div id="end-stats"></div>
+    <button class="big-btn" id="again-btn" type="button">Play again</button>
+  </section>
+
+  <div id="selftest" aria-hidden="true"></div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
